@@ -17,7 +17,7 @@ export default class SignupForm extends Component {
         alertShow: false,
 		alertTitle: "",
         alertBody: "",
-        isLoading: true
+        isLoading: false
     }
 
     styles = {
@@ -32,15 +32,12 @@ export default class SignupForm extends Component {
         counter: {
             color: "#777"
         },
-        buttonWrapper: {
-            position: "relative",
-            padding: "8px"
-        },
         buttonProgress: {
             color: "#D8AB4C",
-            position: 'absolute',
-            top: '50%',
-            left: '50%'
+            float: "right",
+            position: "relative",
+            top: "24px",
+            left: "54px"
         }
     }
 
@@ -180,7 +177,7 @@ export default class SignupForm extends Component {
                             />
                             <FormHelperText style={this.styles.helper}>Please provide proof of your alumni status. (e.g. LinkedIn Profile Link, Name of Reference, etc.)</FormHelperText>
                         </Grid>
-                        <div style={this.styles.buttonWrapper}>
+                        <Grid item xs={12}>
                             <Button
                                 color="primary"
                                 style={this.styles.button}
@@ -190,7 +187,7 @@ export default class SignupForm extends Component {
                                 Submit
                             </Button>
                             {this.state.isLoading && <CircularProgress size={24} style={this.styles.buttonProgress} />}
-                        </div>
+                        </Grid>
                     </Grid>
                 </ValidatorForm>
                 <Alert
