@@ -43,10 +43,11 @@ To get started ...
 **Step 3** - 🔃 Create a new pull request using [https://github.com/TerrenceMM2/VU-Alumni-Slack-Signup/compare](https://github.com/TerrenceMM2/VU-Alumni-Slack-Signup/compare)
 
 ### Built With
-- [React](https://reactjs.org/)
-- [Material-UI](https://material-ui.com/)
-- [Axios](https://www.npmjs.com/package/axios)
-- [react-material-ui-form-validator](https://www.npmjs.com/package/react-material-ui-form-validator)
+- [React](https://reactjs.org/)  
+- [Material-UI](https://material-ui.com/)  
+- [Axios](https://www.npmjs.com/package/axios)  
+- [GitHub Pages](https://www.npmjs.com/package/gh-pages)  
+- [react-material-ui-form-validator](https://www.npmjs.com/package/react-material-ui-form-validator)  
 
 ### Author
 * **Terrence Mahnken** - [LinkedIn](https://www.linkedin.com/in/terrencemahnken/) | [Twitter](https://twitter.com/TerrenceMahnken) | [Personal Portfolio](https://terrence.codes)
