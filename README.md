@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/github/last-commit/terrencemm2/VU-Alumni-Slack-Signup?style=for-the-badge" />
+<img src="https://img.shields.io/github/last-commit/terrencemm2/VU-Slack-Signup-Frontend?style=for-the-badge" />
 <img align="right" width="100" height="100" src="../media/logo.png">
 
 # VU-Slack-Signup-Frontend
