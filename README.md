@@ -1,7 +1,4 @@
-<div>
-<img src="https://img.shields.io/website?label=AWS%20Deployment&logo=amazon-aws&style=for-the-badge&url=http://vuslack.com%2F" />
 <img src="https://img.shields.io/github/last-commit/terrencemm2/VU-Alumni-Slack-Signup?style=for-the-badge" />
-</div>
 <img align="right" width="100" height="100" src="../media/logo.png">
 
 # VU-Slack-Signup-Frontend
