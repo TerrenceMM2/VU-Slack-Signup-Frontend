@@ -1,5 +1,5 @@
 <img src="https://img.shields.io/github/last-commit/terrencemm2/VU-Slack-Signup-Frontend?style=for-the-badge" />
-<img align="right" width="100" height="100" src="https://github.com/TerrenceMM2/VU-Slack-Signup-Frontend/blob/media/logo.png?raw=true">
+<img align="right" width="100" height="100" src="../media/logo.png?raw=true">
 
 # VU-Slack-Signup-Frontend
 
@@ -21,7 +21,7 @@ A simple form to be used by Vanderbilt University Coding Boot Camp alumni to sub
 
 ## Screenshot
 
-![Signup Page Screenshot](https://github.com/TerrenceMM2/VU-Slack-Signup-Frontend/blob/media/screenshot.png?raw=true)
+![Signup Page Screenshot](../media/screenshot.png?raw=true)
 
 ## Back-End
 
