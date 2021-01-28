@@ -21,7 +21,7 @@ A simple form to be used by Vanderbilt University Coding Boot Camp alumni to sub
 
 ## Screenshot
 
-![Signup Page Screenshot](https://raw.githubusercontent.com/TerrenceMM2/VU-Slack-Signup-Frontend/media/screenshot.png)
+![Signup Page Screenshot](../media/screenshot.png?raw=true)
 
 ## Back-End
 
