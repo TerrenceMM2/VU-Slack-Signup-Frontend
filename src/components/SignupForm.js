@@ -8,8 +8,6 @@ import axios from "axios";
 import Alert from "../components/Alert";
 import ReCAPTCHA from "react-google-recaptcha";
 
-console.log(process.env.REACT_APP_SITE_KEY)
-
 export default class SignupForm extends Component {
 
     state = {
@@ -21,12 +19,13 @@ export default class SignupForm extends Component {
 		alertTitle: "",
         alertBody: "",
         isLoading: false,
-        recaptchaRef: React.createRef()
+        recaptchaRef: React.createRef(),
+        recaptchaSet: false,
+        recaptchaValue: null
     }
 
     styles = {
         button: {
-            marginTop: "1rem",
             float: "right",
             color: "#333"
         },
@@ -40,9 +39,17 @@ export default class SignupForm extends Component {
             color: "#D8AB4C",
             float: "right",
             position: "relative",
-            top: "24px",
+            top: "8px",
             left: "54px"
+        },
+        recaptcha: {
+            display: "inline"
         }
+    }
+
+    handleRecaptcha = recaptchaValue => {
+        this.setState({ recaptchaValue });
+        if (recaptchaValue !== null) this.setState({ recaptchaSet: true });
     }
 
     handleClose = () => {
@@ -60,38 +67,51 @@ export default class SignupForm extends Component {
 
         this.setState({ isLoading: true });
 
-        axios({
-            method: "post",
-            url: "https://cors-anywhere.herokuapp.com/https://eta0k8k1pf.execute-api.us-east-2.amazonaws.com/prod/api/submit", 
-            data: {
-                "name": `${firstName.trim()} ${lastName.trim()}`,
-                "email": email.trim(),
-                "msg": message.trim()
-            }
-        }).then((res) => {
+        if (this.state.recaptchaSet === false) {
             this.setState({
-                firstName: "",
-                lastName: "",
-                email: "",
-                message: "",
-                alertTitle: res.data.msgTitle,
-                alertBody: res.data.msgBody,
+                alertTitle: "Are you a robot?",
+                alertBody: "Please check the reCAPTCHA box.",
                 alertShow: true,
                 isLoading: false
             })
-        }).catch((err) => {
-            this.setState({
-                firstName: "",
-                lastName: "",
-                email: "",
-                message: "",
-                alertTitle: err.data.msgTitle,
-                alertBody: err.data.msgBody,
-                alertShow: true,
-                isLoading: false
-            })
-        })
-	};
+        } else {
+                axios({
+                    method: "post",
+                    url: "https://cors-anywhere.herokuapp.com/https://eta0k8k1pf.execute-api.us-east-2.amazonaws.com/prod/api/submit", 
+                    data: {
+                        "name": `${firstName.trim()} ${lastName.trim()}`,
+                        "email": email.trim(),
+                        "msg": message.trim()
+                    }
+                }).then((res) => {
+                    this.setState({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        message: "",
+                        alertTitle: res.data.msgTitle,
+                        alertBody: res.data.msgBody,
+                        alertShow: true,
+                        isLoading: false,
+                        recaptchaSet: false,
+                        recaptchaValue: null
+                    })
+                }).catch((err) => {
+                    this.setState({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        message: "",
+                        alertTitle: err.data.msgTitle,
+                        alertBody: err.data.msgBody,
+                        alertShow: true,
+                        isLoading: false
+                    })
+                })
+            };
+        }
+
+        
 
     render() {
         return (
@@ -181,7 +201,16 @@ export default class SignupForm extends Component {
                             />
                             <FormHelperText style={this.styles.helper}>Please provide proof of your alumni status. (e.g. LinkedIn Profile Link, Name of Reference, etc.)</FormHelperText>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item lg={6} xs={12}>
+                            <ReCAPTCHA
+                                style={{ display: "inline-block"}}
+                                theme="dark"
+                                ref={this.state.recaptchaRef}
+                                sitekey={process.env.REACT_APP_SITE_KEY}
+                                onChange={this.handleRecaptcha}
+                                />
+                        </Grid>
+                        <Grid item lg={6} xs={12}>
                             <Button
                                 color="primary"
                                 style={this.styles.button}
@@ -193,11 +222,6 @@ export default class SignupForm extends Component {
                             {this.state.isLoading && <CircularProgress size={24} style={this.styles.buttonProgress} />}
                         </Grid>
                     </Grid>
-                    <ReCAPTCHA
-                        ref={this.state.recaptchaRef}
-                        sitekey={process.env.REACT_APP_SITE_KEY}
-                        onChange={this.handleInputChange}
-                        />
                 </ValidatorForm>
                 <Alert
                     alertTitle={this.state.alertTitle}
