@@ -6,6 +6,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import axios from "axios";
 import Alert from "../components/Alert";
+import ReCAPTCHA from "react-google-recaptcha";
+
+console.log(process.env.REACT_APP_SITE_KEY)
 
 export default class SignupForm extends Component {
 
@@ -17,7 +20,8 @@ export default class SignupForm extends Component {
         alertShow: false,
 		alertTitle: "",
         alertBody: "",
-        isLoading: false
+        isLoading: false,
+        recaptchaRef: React.createRef()
     }
 
     styles = {
@@ -189,6 +193,11 @@ export default class SignupForm extends Component {
                             {this.state.isLoading && <CircularProgress size={24} style={this.styles.buttonProgress} />}
                         </Grid>
                     </Grid>
+                    <ReCAPTCHA
+                        ref={this.state.recaptchaRef}
+                        sitekey={process.env.REACT_APP_SITE_KEY}
+                        onChange={this.handleInputChange}
+                        />
                 </ValidatorForm>
                 <Alert
                     alertTitle={this.state.alertTitle}
