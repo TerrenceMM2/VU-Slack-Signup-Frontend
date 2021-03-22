@@ -1,56 +1,55 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
-import Grid from '@material-ui/core/Grid';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import Grid from "@material-ui/core/Grid";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import axios from "axios";
 import Alert from "../components/Alert";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default class SignupForm extends Component {
-
     state = {
         firstName: "",
         lastName: "",
         email: "",
         message: "",
         alertShow: false,
-		alertTitle: "",
+        alertTitle: "",
         alertBody: "",
         isLoading: false,
         recaptchaRef: React.createRef(),
         recaptchaSet: false,
-        recaptchaValue: null
-    }
+        recaptchaValue: null,
+    };
 
     styles = {
         button: {
             float: "right",
-            color: "#333"
+            color: "#333",
         },
         helper: {
-            color: "#777"
+            color: "#777",
         },
         counter: {
-            color: "#777"
+            color: "#777",
         },
         buttonProgress: {
             color: "#D8AB4C",
             float: "right",
             position: "relative",
             top: "8px",
-            left: "54px"
+            left: "54px",
         },
         recaptcha: {
-            display: "inline"
-        }
-    }
+            display: "inline",
+        },
+    };
 
-    handleRecaptcha = recaptchaValue => {
+    handleRecaptcha = (recaptchaValue) => {
         this.setState({ recaptchaValue });
         if (recaptchaValue !== null) this.setState({ recaptchaSet: true });
-    }
+    };
 
     handleClose = () => {
         this.setState({ alertShow: false });
@@ -58,11 +57,10 @@ export default class SignupForm extends Component {
 
     handleInputChange = (event) => {
         const { name, value } = event.target;
-		this.setState({ [name]: value });
+        this.setState({ [name]: value });
     };
-    
-    handleSubmitForm = (event) => {
 
+    handleSubmitForm = (event) => {
         const { firstName, lastName, email, message } = this.state;
 
         this.setState({ isLoading: true });
@@ -72,18 +70,20 @@ export default class SignupForm extends Component {
                 alertTitle: "Are you a robot?",
                 alertBody: "Please check the reCAPTCHA box.",
                 alertShow: true,
-                isLoading: false
-            })
+                isLoading: false,
+            });
         } else {
-                axios({
-                    method: "post",
-                    url: "https://cors-anywhere.herokuapp.com/https://eta0k8k1pf.execute-api.us-east-2.amazonaws.com/prod/api/submit", 
-                    data: {
-                        "name": `${firstName.trim()} ${lastName.trim()}`,
-                        "email": email.trim(),
-                        "msg": message.trim()
-                    }
-                }).then((res) => {
+            axios({
+                method: "post",
+                url:
+                    "https://eta0k8k1pf.execute-api.us-east-2.amazonaws.com/prod/api/submit",
+                data: {
+                    name: `${firstName.trim()} ${lastName.trim()}`,
+                    email: email.trim(),
+                    msg: message.trim(),
+                },
+            })
+                .then((res) => {
                     this.setState({
                         firstName: "",
                         lastName: "",
@@ -94,9 +94,10 @@ export default class SignupForm extends Component {
                         alertShow: true,
                         isLoading: false,
                         recaptchaSet: false,
-                        recaptchaValue: null
-                    })
-                }).catch((err) => {
+                        recaptchaValue: null,
+                    });
+                })
+                .catch((err) => {
                     this.setState({
                         firstName: "",
                         lastName: "",
@@ -105,13 +106,11 @@ export default class SignupForm extends Component {
                         alertTitle: err.data.msgTitle,
                         alertBody: err.data.msgBody,
                         alertShow: true,
-                        isLoading: false
-                    })
-                })
-            };
+                        isLoading: false,
+                    });
+                });
         }
-
-        
+    };
 
     render() {
         return (
@@ -120,8 +119,8 @@ export default class SignupForm extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextValidator
-                                validators={['required']}
-                                errorMessages={['This field is required.']}
+                                validators={["required"]}
+                                errorMessages={["This field is required."]}
                                 fullWidth
                                 style={this.styles.input}
                                 id="firstName"
@@ -134,14 +133,19 @@ export default class SignupForm extends Component {
                                     maxLength: 40,
                                 }}
                                 InputProps={{
-                                    endAdornment: <FormHelperText style={this.styles.counter}>{this.state.firstName.length}/40</FormHelperText>
+                                    endAdornment: (
+                                        <FormHelperText
+                                            style={this.styles.counter}>
+                                            {this.state.firstName.length}/40
+                                        </FormHelperText>
+                                    ),
                                 }}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <TextValidator
-                                validators={['required']}
-                                errorMessages={['This field is required.']}
+                                validators={["required"]}
+                                errorMessages={["This field is required."]}
                                 fullWidth
                                 style={this.styles.input}
                                 id="lastName"
@@ -154,7 +158,12 @@ export default class SignupForm extends Component {
                                     maxLength: 40,
                                 }}
                                 InputProps={{
-                                    endAdornment: <FormHelperText style={this.styles.counter}>{this.state.lastName.length}/40</FormHelperText>
+                                    endAdornment: (
+                                        <FormHelperText
+                                            style={this.styles.counter}>
+                                            {this.state.lastName.length}/40
+                                        </FormHelperText>
+                                    ),
                                 }}
                             />
                         </Grid>
@@ -167,22 +176,30 @@ export default class SignupForm extends Component {
                                 onChange={this.handleInputChange}
                                 name="email"
                                 value={this.state.email}
-                                validators={['required', 'isEmail']}
-                                errorMessages={['This field is required', 'Email is not valid.']}
+                                validators={["required", "isEmail"]}
+                                errorMessages={[
+                                    "This field is required",
+                                    "Email is not valid.",
+                                ]}
                                 variant="outlined"
                                 inputProps={{
                                     maxLength: 40,
                                 }}
                                 InputProps={{
-                                    endAdornment: <FormHelperText style={this.styles.counter}>{this.state.email.length}/40</FormHelperText>
+                                    endAdornment: (
+                                        <FormHelperText
+                                            style={this.styles.counter}>
+                                            {this.state.email.length}/40
+                                        </FormHelperText>
+                                    ),
                                 }}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextValidator
                                 fullWidth
-                                validators={['required']}
-                                errorMessages={['This field is required']}
+                                validators={["required"]}
+                                errorMessages={["This field is required"]}
                                 style={this.styles.input}
                                 id="message"
                                 label="Message *"
@@ -196,19 +213,28 @@ export default class SignupForm extends Component {
                                     maxLength: 400,
                                 }}
                                 InputProps={{
-                                    endAdornment: <FormHelperText style={this.styles.counter}>{this.state.message.length}/400</FormHelperText>
+                                    endAdornment: (
+                                        <FormHelperText
+                                            style={this.styles.counter}>
+                                            {this.state.message.length}/400
+                                        </FormHelperText>
+                                    ),
                                 }}
                             />
-                            <FormHelperText style={this.styles.helper}>Please provide proof of your alumni status. (e.g. LinkedIn Profile Link, Name of Reference, etc.)</FormHelperText>
+                            <FormHelperText style={this.styles.helper}>
+                                Please provide proof of your alumni status.
+                                (e.g. LinkedIn Profile Link, Name of Reference,
+                                etc.)
+                            </FormHelperText>
                         </Grid>
                         <Grid item lg={6} xs={12}>
                             <ReCAPTCHA
-                                style={{ display: "inline-block"}}
+                                style={{ display: "inline-block" }}
                                 theme="dark"
                                 ref={this.state.recaptchaRef}
                                 sitekey={process.env.REACT_APP_SITE_KEY}
                                 onChange={this.handleRecaptcha}
-                                />
+                            />
                         </Grid>
                         <Grid item lg={6} xs={12}>
                             <Button
@@ -219,7 +245,12 @@ export default class SignupForm extends Component {
                                 type="submit">
                                 Submit
                             </Button>
-                            {this.state.isLoading && <CircularProgress size={24} style={this.styles.buttonProgress} />}
+                            {this.state.isLoading && (
+                                <CircularProgress
+                                    size={24}
+                                    style={this.styles.buttonProgress}
+                                />
+                            )}
                         </Grid>
                     </Grid>
                 </ValidatorForm>
@@ -230,6 +261,6 @@ export default class SignupForm extends Component {
                     alertBody={this.state.alertBody}
                 />
             </div>
-        )
+        );
     }
 }
