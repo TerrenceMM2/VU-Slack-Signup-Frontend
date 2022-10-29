@@ -1,7 +1,14 @@
 <img src="https://img.shields.io/github/last-commit/terrencemm2/VU-Slack-Signup-Frontend?style=for-the-badge" />
+<img src="https://img.shields.io/static/v1?label=Closed&message=December%201%2C%202022&color=red&style=for-the-badge" />
 <img align="right" width="100" height="100" src="../media/logo.png?raw=true">
 
-# VU-Slack-Signup-Frontend
+# VU-Slack-Signup-Frontend (Archived 📦)
+
+## 📢 UPDATE
+
+The VU Boot Camp Alumni Slack workspace closed as of December 1st, 2022. As such, this site - vuslack.com - has been taken down.
+
+---
 
 Live Link: [vuslack.com](https://vuslack.com)  
 A simple form to be used by Vanderbilt University Coding Boot Camp alumni to submit a invitation request to join dedicated Slack Workspace. Built with React &amp; Material UI. Connects to AWS Lambda/API Gateway endpoint.
@@ -9,11 +16,11 @@ A simple form to be used by Vanderbilt University Coding Boot Camp alumni to sub
 ## Instructions
 
 1. Fill out the form in its entirety.
-    1. First Name
-    2. Last Name
-    3. Valid email address
-    4. A brief message stating affiliation with the boot camp.
-    5. Click "I'm not a robot" reCAPTCHA checkbox.
+   1. First Name
+   2. Last Name
+   3. Valid email address
+   4. A brief message stating affiliation with the boot camp.
+   5. Click "I'm not a robot" reCAPTCHA checkbox.
 2. Click "submit."
 3. A message will flash stating if the submission was successful.
 
@@ -29,9 +36,9 @@ A simple form to be used by Vanderbilt University Coding Boot Camp alumni to sub
 
 ### Helpful Guides
 
--   [node-react-boilerplate by Pete Wanca](https://github.com/petewanca/node-react-boilerplate)
--   [_Sending Emails with Node.js Using SMTP, Gmail, and OAuth2_ by Nick Roach](https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1)
--   [_How To Deploy MERN (Mongo Express React Node) Stack App on AWS EC2— THE RIGHT WAY!_ by Ryan Smith](https://medium.com/@rksmith369/how-to-deploy-mern-stack-app-on-aws-ec2-with-ssl-nginx-the-right-way-e76c1a8cd6c6)
+- [node-react-boilerplate by Pete Wanca](https://github.com/petewanca/node-react-boilerplate)
+- [_Sending Emails with Node.js Using SMTP, Gmail, and OAuth2_ by Nick Roach](https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1)
+- [_How To Deploy MERN (Mongo Express React Node) Stack App on AWS EC2— THE RIGHT WAY!_ by Ryan Smith](https://medium.com/@rksmith369/how-to-deploy-mern-stack-app-on-aws-ec2-with-ssl-nginx-the-right-way-e76c1a8cd6c6)
 
 ### Contribute
 
@@ -39,9 +46,9 @@ To get started ...
 
 **Step 1**
 
--   **Option 1** - 🍴 Fork this repo!
+- **Option 1** - 🍴 Fork this repo!
 
--   **Option 2** - 👯 Clone this repo to your local machine using `https://github.com/TerrenceMM2/VU-Slack-Signup-Frontend.git`
+- **Option 2** - 👯 Clone this repo to your local machine using `https://github.com/TerrenceMM2/VU-Slack-Signup-Frontend.git`
 
 **Step 2** - **HACK AWAY!** 🔨🔨🔨
 
@@ -49,13 +56,13 @@ To get started ...
 
 ### Built With
 
--   [React](https://reactjs.org/)
--   [Material-UI](https://material-ui.com/)
--   [Axios](https://www.npmjs.com/package/axios)
--   [GitHub Pages](https://www.npmjs.com/package/gh-pages)
--   [react-material-ui-form-validator](https://www.npmjs.com/package/react-material-ui-form-validator)
--   [react-google-recaptcha](https://www.npmjs.com/package/react-google-recaptcha)
+- [React](https://reactjs.org/)
+- [Material-UI](https://material-ui.com/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [GitHub Pages](https://www.npmjs.com/package/gh-pages)
+- [react-material-ui-form-validator](https://www.npmjs.com/package/react-material-ui-form-validator)
+- [react-google-recaptcha](https://www.npmjs.com/package/react-google-recaptcha)
 
 ### Author
 
--   **Terrence Mahnken** - [LinkedIn](https://www.linkedin.com/in/terrencemahnken/) | [Twitter](https://twitter.com/TerrenceMahnken) | [Personal Portfolio](https://terrence.codes)
+- **Terrence Mahnken** - [LinkedIn](https://www.linkedin.com/in/terrencemahnken/) | [Twitter](https://twitter.com/TerrenceMahnken) | [Personal Portfolio](https://terrence.codes)
