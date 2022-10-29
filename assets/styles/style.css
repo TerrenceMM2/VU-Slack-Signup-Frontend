@@ -1,13 +1,111 @@
 html,
 body {
   height: 100%;
+  background-color: #333;
+  margin: 0;
 }
 
 body {
-  margin: 0;
+  cursor: default;
+  margin: 0 1rem;
   font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #333;
   color: #fff;
+}
+
+header {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+section > ul {
+  display: inline-block;
+}
+
+h1 {
+  margin: 1rem 0 0 0;
+}
+
+p {
+  margin: 1rem 0 0 0;
+}
+
+ul {
+  text-align: left;
+}
+
+.logo {
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+.redirect-meme {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: #d8ab4c;
+}
+
+a:hover,
+a:active {
+  color: #fff;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    margin: 0 7rem;
+  }
+
+  main {
+    height: 75%;
+    flex-direction: row;
+  }
+
+  .redirect-meme {
+    max-width: 50%;
+    margin-right: 1rem;
+  }
+
+  section {
+    margin-left: 1rem;
+  }
+
+  h1 {
+    text-align: left;
+    font-size: 3rem;
+  }
+
+  p,
+  li {
+    text-align: left;
+    font-size: 1.5rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #777;
+  border-radius: 8px;
+  -webkit-transition: color 0.25s ease;
 }
