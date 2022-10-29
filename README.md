@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/github/last-commit/terrencemm2/VU-Slack-Signup-Frontend?style=for-the-badge" /><img src="https://img.shields.io/static/v1?label=Closed&message=December%201%2C%202022&color=red&style=for-the-badge" />
+<img src="https://img.shields.io/github/last-commit/terrencemm2/VU-Slack-Signup-Frontend?style=for-the-badge" /> <img src="https://img.shields.io/static/v1?label=Closed&message=December%201%2C%202022&color=red&style=for-the-badge" />
 <img align="right" width="100" height="100" src="../media/logo.png?raw=true">
 
 # VU-Slack-Signup-Frontend (Archived 📦)
